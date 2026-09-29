@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-saffron: 234 88 12;
+    --color-emerald: 22 163 74;
+    --color-cyan: 2 132 199;
+    --color-navy: 30 41 59;
+  }
+
+  .dark {
+    --color-saffron: 255 153 51;
+    --color-emerald: 16 185 129;
+    --color-cyan: 56 189 248;
+    --color-navy: 11 19 41;
+  }
+
+  body {
+    font-family: 'Space Grotesk', 'Outfit', 'Inter', sans-serif;
+  }
+}
+
+/* Light Mode Core Overrides (Default) */
+html:not(.dark) body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+html:not(.dark) .glass-panel {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+  color: #0F172A !important;
+}
+
+html:not(.dark) .glass-panel-elevated {
+  background: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08) !important;
+  color: #0F172A !important;
+}
+
+html:not(.dark) .glass-panel-critical {
+  background: #FFF5F5 !important;
+  border: 1px solid #FECACA !important;
+  box-shadow: 0 0 20px -3px rgba(239, 68, 68, 0.15) !important;
+  color: #0F172A !important;
+}
+
+/* Text & Contrast overrides in light mode */
+html:not(.dark) .text-white {
+  color: #0F172A !important;
+}
+html:not(.dark) .text-slate-100 {
+  color: #0F172A !important;
+}
+html:not(.dark) .text-slate-200 {
+  color: #1E293B !important;
+}
+html:not(.dark) .text-slate-300 {
+  color: #334155 !important;
+}
+html:not(.dark) .text-slate-400 {
+  color: #64748B !important;
+}
+
+/* Background resets for dark containers in light mode */
+html:not(.dark) .bg-slate-950,
+html:not(.dark) .bg-slate-900,
+html:not(.dark) .bg-\[\#040711\],
+html:not(.dark) .bg-\[\#0B0F19\],
+html:not(.dark) .bg-\[\#081018\] {
+  background-color: #FFFFFF !important;
+}
+
+html:not(.dark) .bg-slate-900\/90,
+html:not(.dark) .bg-slate-900\/80,
+html:not(.dark) .bg-slate-900\/60,
+html:not(.dark) .bg-slate-850,
+html:not(.dark) .bg-slate-800 {
+  background-color: #F1F5F9 !important;
+}
+
+html:not(.dark) .border-slate-800,
+html:not(.dark) .border-slate-700 {
+  border-color: #E2E8F0 !important;
+}
+
+html:not(.dark) select,
+html:not(.dark) input,
+html:not(.dark) textarea {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* Dark Mode Original Styling */
+.dark body {
+  background-color: #040711;
+  color: #F8FAFC;
+}
+
+.dark .glass-panel {
+  background: rgba(11, 19, 41, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+}
+
+.dark .glass-panel-elevated {
+  background: rgba(19, 31, 61, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7);
+}
+
+.dark .glass-panel-critical {
+  background: rgba(28, 17, 24, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 153, 51, 0.35);
+  box-shadow: 0 0 25px -5px rgba(255, 153, 51, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94A3B8;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1E293B;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38BDF8;
+}
+
+/* Glowing text effects */
+.text-glow-saffron {
+  text-shadow: 0 0 15px rgba(255, 153, 51, 0.6);
+}
+
+.text-glow-emerald {
+  text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+}
+
+/* Leaflet Overrides & Stacking Isolation */
+.leaflet-container {
+  font-family: inherit;
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+  isolation: isolate !important;
+}
+
+.leaflet-pane {
+  z-index: 2 !important;
+}
+
+.leaflet-tile-pane {
+  z-index: 2 !important;
+}
+
+.leaflet-overlay-pane {
+  z-index: 4 !important;
+}
+
+.leaflet-shadow-pane {
+  z-index: 5 !important;
+}
+
+.leaflet-marker-pane {
+  z-index: 6 !important;
+}
+
+.leaflet-tooltip-pane {
+  z-index: 7 !important;
+}
+
+.leaflet-popup-pane {
+  z-index: 8 !important;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 10 !important;
+}
+
+.leaflet-control {
+  z-index: 10 !important;
+}
+
+html:not(.dark) .leaflet-container {
+  background: #E2E8F0 !important;
+}
+
+.dark .leaflet-container {
+  background: #040711 !important;
+}
+
+html:not(.dark) .leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15) !important;
+}
+
+html:not(.dark) .leaflet-popup-tip {
+  background: #FFFFFF !important;
+}
+
+.dark .leaflet-popup-content-wrapper {
+  background: #0B1329 !important;
+  color: #F8FAFC !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+.dark .leaflet-popup-tip {
+  background: #0B1329 !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px !important;
+  line-height: 1.5 !important;
+}
+
+
